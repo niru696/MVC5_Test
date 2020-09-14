@@ -3,3 +3,8 @@
 ################################################################################
 
 /.vs
+/WebApplication1/bin
+/WebApplication1/obj
+/Application.Services/obj
+/Application.Entities/obj/Debug
+/Application.Data/obj/Debug

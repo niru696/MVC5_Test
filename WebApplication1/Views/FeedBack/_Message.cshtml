@@ -1,0 +1,89 @@
+﻿<script src="~/Scripts/Message.js"></script>
+
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" onclick="HideFeedBackPopup();" aria-label="Close"><span aria-hidden="true">×</span></button>
+            <h4 class="modal-title" id="dvFeedbackLabel">Feedback</h4>
+        </div>
+        <div class="modal-body">
+            <div class="form-horizontal onPressKeyClass">
+                <div class="form-group">
+                    <div class="col-md-4 control-label">
+                        <span style="color:red">*</span>@Html.Label("Rate this page:")
+                    </div>
+                    <div class="col-md-8 pd-t-5 onPressKeyClass">
+                        <label class="mg-r-10 Font-WeightNormal"><input type="radio" checked="checked" class="radioBtnClass chkbxpos" name="rdbrate" value="Awesome!" />&nbsp;Awesome!</label>
+                        <label class="mg-r-10 Font-WeightNormal"><input type="radio" class="radioBtnClass chkbxpos" name="rdbrate" value="Good" />&nbsp;Good</label>
+                        <label class="mg-r-10 Font-WeightNormal"><input type="radio" class="radioBtnClass chkbxpos" name="rdbrate" value="Meh!" />&nbsp;Meh!</label>
+                        <label class="mg-r-10 Font-WeightNormal"><input type="radio" class="radioBtnClass chkbxpos" name="rdbrate" value="Bad" />&nbsp;Bad</label>
+                        <label class="mg-r-10 Font-WeightNormal"><input type="radio" class="radioBtnClass chkbxpos" name="rdbrate" value="Horrible!" />&nbsp;Horrible!</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4 control-label">
+                        <span style="color:red">*</span>@Html.Label("What do you like?")
+                    </div>
+                    <div class="col-md-8">
+                        <textarea id="txtClike" rows="3" cols="20" class="clslikefeedback form-control input-sm"></textarea>
+                        <span id="reqClike" class="text-danger" style="display:none;">Required</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4 control-label">
+                        <span style="color:red">*</span>@Html.Label("What needs to be improved?")
+                    </div>
+                    <div class="col-md-8">
+                        <textarea id="txtImproved" rows="3" class="clsImprovedfeedback feedbacktextarea form-control input-sm"></textarea>
+                        <span id="reqImproved" class="text-danger" style="display:none;">Required</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4 control-label">
+                        <span style="color:red">*</span>@Html.Label("Name:")
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="txtName" class="form-control input-sm" maxlength="50" />
+                        <span id="reqName" class="text-danger" style="display:none;">Required</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4 control-label">
+                        <span style="color:red">*</span>@Html.Label("Email:")
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="txtEmail" class="form-control input-sm" maxlength="50" />
+                        <span id="reqEmail" class="text-danger" style="display:none;">Required</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4 control-label">
+                        @Html.Label("Phone:")
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="txtPhone" maxlength="15" class="form-control input-sm" />
+                    </div>
+                </div>
+            </div>
+            <div class="alert alert-warning mg-b-0">
+                <strong>Note:</strong> Please use this section to share your thoughts on areas which you feel require improvement. Please do not share any patient details or health information.
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="row">
+                <div class="col-md-6 text-left">
+                    <div class="clsPleaseWait mg-t-7" style="display:none;">Please wait...</div>
+                </div>
+                <div class="col-md-6">
+                    <input id="btnSendFeedback" type="button" value="Submit" onclick="SendFeedBackTo()" class="btn btn-primary btn-sm" />
+                    <input id="btnCancelFeedback" type="button" value="Cancel" onclick="HideFeedBackPopup()" class="btn btn-default btn-sm" />
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    var SaveFeedBack = "@Url.Action("SendFeedbackData", "FeedBack")";
+</script>
